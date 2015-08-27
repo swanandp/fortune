@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'site/index'
+  resources :subscription_requests, only: [ :create ]
 
   root to: "site#index"
 end
