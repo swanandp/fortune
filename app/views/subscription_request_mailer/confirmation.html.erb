@@ -1,0 +1,18 @@
+<p>
+    <%= @greeting %><br>
+</p>
+
+<p>
+    Please <%= link_to "click here", confirm_subscription_request_url(@token) %> on this link to confirm your
+    subscription.
+</p>
+
+<p>
+    If the url is not clickable, copy and paste this link in the browser
+    window: <%= confirm_subscription_request_url(@token) %>
+</p>
+
+<p>
+    Thanks, <br>
+    The Fortune Cookie Team
+</p>

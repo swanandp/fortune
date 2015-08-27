@@ -22,6 +22,7 @@ group :development, :test do
   gem "rspec-rails", "3.3.3"
   gem "quiet_assets", "1.1.0"
   gem "ffaker", "2.1.0"
+  gem "letter_opener"
 end
 
 group :development do
