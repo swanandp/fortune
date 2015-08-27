@@ -12,3 +12,6 @@
 /log/*
 !/log/.keep
 /tmp
+.rspec
+passenger.*.pid
+passenger.*.pid.lock
