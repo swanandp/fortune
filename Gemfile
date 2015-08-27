@@ -27,4 +27,5 @@ end
 
 group :development do
   gem "pry-rails", "0.3.4"
+  gem "awesome_print"
 end
