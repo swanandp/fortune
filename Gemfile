@@ -19,10 +19,11 @@ gem "sass-rails", "~> 5.0"
 
 group :development, :test do
   gem "byebug", "6.0.2"
-  gem "rspec-rails", "3.3.3"
   gem "quiet_assets", "1.1.0"
   gem "ffaker", "2.1.0"
   gem "letter_opener"
+  gem "rspec-rails", "3.3.3", require: "rspec/rails"
+  gem "factory_girl_rails"
 end
 
 group :development do

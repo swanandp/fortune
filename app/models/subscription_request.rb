@@ -5,4 +5,8 @@ class SubscriptionRequest < ActiveRecord::Base
     self.token = SecureRandom.urlsafe_base64(32)
     self.valid_until = 1.day.from_now
   end
+
+  def acceptable?
+    self.valid_until + 1.day < now
+  end
 end

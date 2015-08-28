@@ -14,7 +14,7 @@
                   <%= flash_messages %>
               </div>
               <div class="form-group">
-                  <%= f.text_field :email, class: "form-control input-lg", type: "email", autocomplete: "off" %>
+                  <%= f.text_field :email, class: "form-control input-lg", type: "email", required: true, autocomplete: "off" %>
               </div>
               <div class="form-group">
                   <%= f.submit "Sign me up!", class: "btn btn-primary btn-lg" %>

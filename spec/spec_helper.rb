@@ -1,5 +1,5 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-require "ffaker"
+require "factory_girl_rails"
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -17,6 +17,7 @@ RSpec.configure do |config|
   config.run_all_when_everything_filtered = true
 
   config.disable_monkey_patching!
+  config.include FactoryGirl::Syntax::Methods
 
   if config.files_to_run.one?
     # Use the documentation formatter for detailed output,
