@@ -23,5 +23,18 @@ RSpec.describe SubscriptionRequestsController, type: :controller do
         expect(response).to have_http_status(:redirect)
       end
     end
+
+    context "already subscribed email" do
+      let(:subscription) { create(:subscription) }
+
+      let(:params) do
+        { subscription_request: { email: subscription.email } }
+      end
+
+      it "returns http redirect" do
+        post :create, params
+        expect(response).to have_http_status(:redirect)
+      end
+    end
   end
 end
