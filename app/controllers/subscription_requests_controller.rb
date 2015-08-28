@@ -14,6 +14,7 @@ class SubscriptionRequestsController < ApplicationController
 
   def confirm
     @subscription_request = SubscriptionRequest.find_by(token: params[:id])
+    @subscription_request.confirm!
     flash[:success] = "You've been subscribed to the list!"
     redirect_to root_path
   end

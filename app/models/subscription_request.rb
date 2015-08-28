@@ -3,10 +3,10 @@ class SubscriptionRequest < ActiveRecord::Base
 
   before_create do
     self.token = SecureRandom.urlsafe_base64(32)
-    self.valid_until = 1.day.from_now
   end
 
-  def acceptable?
-    self.valid_until + 1.day < now
+  def confirm!
+    Subscription.create!(email: self.email)
+    self.destroy
   end
 end
