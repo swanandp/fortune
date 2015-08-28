@@ -5,5 +5,7 @@ class CreateSubscriptions < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_index :subscription_requests, :email
   end
 end

@@ -17,11 +17,14 @@ ActiveRecord::Schema.define(version: 20150828072926) do
   enable_extension "plpgsql"
 
   create_table "subscription_requests", force: :cascade do |t|
-    t.string   "email"
-    t.string   "token"
+    t.string   "email",      null: false
+    t.string   "token",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "subscription_requests", ["email"], name: "index_subscription_requests_on_email", using: :btree
+  add_index "subscription_requests", ["token"], name: "index_subscription_requests_on_token", using: :btree
 
   create_table "subscriptions", force: :cascade do |t|
     t.string   "email",      null: false

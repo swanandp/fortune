@@ -6,5 +6,7 @@ class CreateSubscriptionRequests < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_index :subscription_requests, :token
   end
 end

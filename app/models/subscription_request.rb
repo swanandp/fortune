@@ -6,7 +6,7 @@ class SubscriptionRequest < ActiveRecord::Base
   end
 
   def confirm!
-    Subscription.create!(email: self.email)
+    Subscription.create(email: self.email) # Perfectly fine if this step silently fails
     self.destroy
   end
 end
