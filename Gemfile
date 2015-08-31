@@ -23,10 +23,14 @@ group :development, :test do
   gem "ffaker", "2.1.0"
   gem "letter_opener"
   gem "rspec-rails", "3.3.3", require: "rspec/rails"
-  gem "factory_girl_rails"
+  gem "factory_girl_rails", "4.5.0"
 end
 
 group :development do
   gem "pry-rails", "0.3.4"
-  gem "awesome_print"
+  gem "awesome_print", "1.6.1"
+end
+
+group :test do
+  gem "timecop", "0.8.0"
 end

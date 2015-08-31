@@ -12,7 +12,7 @@ class Subscription < ActiveRecord::Base
 
   def self.send_emails(quote, time = Time.zone.now)
     eligible_for_delivery(time).find_each.map do |subscription|
-      SubscriptionMailerJob.perform_later(subscription, quote)
+      SubscriptionMailerJob.perform_later(subscription.id, quote)
       subscription.id
     end.compact
   end
