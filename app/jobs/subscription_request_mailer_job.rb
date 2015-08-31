@@ -1,4 +1,4 @@
-class SubscriptionMailerJob < ActiveJob::Base
+class SubscriptionRequestMailerJob < ActiveJob::Base
   queue_as :default
 
   def perform(subscription_request_id)

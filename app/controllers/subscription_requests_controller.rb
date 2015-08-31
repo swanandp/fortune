@@ -5,7 +5,7 @@ class SubscriptionRequestsController < ApplicationController
     @subscription_request = SubscriptionRequest.new(subscription_params)
 
     if @subscription_request.save
-      SubscriptionMailerJob.perform_later(@subscription_request.id)
+      SubscriptionRequestMailerJob.perform_later(@subscription_request.id)
       flash[:success] = "Thanks! Please check your email to proceed."
       redirect_to root_path
     else
