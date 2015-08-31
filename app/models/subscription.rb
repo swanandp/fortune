@@ -4,13 +4,15 @@ class Subscription < ActiveRecord::Base
   scope :eligible_for_delivery, ->(time) { where("last_sent_at IS NULL OR date(last_sent_at) < ?", time.to_date) }
 
   def self.publish!(time = Time.zone.now)
-    delivered_ids = send_emails(time)
-    where(id: delivered_ids).update_all(last_sent_at: time)
+    return unless eligible_for_delivery(time).count > 0
+    quote = Qotd.get
+    enqueued_subscription_ids = send_emails(quote, time)
+    where(id: enqueued_subscription_ids).update_all(last_sent_at: time)
   end
 
-  def self.send_emails(time = Time.zone.now)
+  def self.send_emails(quote, time = Time.zone.now)
     eligible_for_delivery(time).find_each.map do |subscription|
-      SubscriptionMailer.post(subscription).deliver
+      SubscriptionMailerJob.perform_later(subscription, quote)
       subscription.id
     end.compact
   end

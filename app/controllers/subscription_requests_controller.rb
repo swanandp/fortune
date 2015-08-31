@@ -1,5 +1,5 @@
 class SubscriptionRequestsController < ApplicationController
-  before_filter :already_subscribed?, only: [ :create ]
+  before_filter :already_subscribed?, only: [:create]
 
   def create
     @subscription_request = SubscriptionRequest.new(subscription_params)
@@ -30,9 +30,8 @@ class SubscriptionRequestsController < ApplicationController
   end
 
   def already_subscribed?
-    if Subscription.find_by(email: subscription_params[:email]).present?
-      flash[:notice] = "Thanks! Looks like you're already subscribed!"
-      redirect_to root_path
-    end
+    return true unless Subscription.find_by(email: subscription_params[:email]).present?
+    flash[:notice] = "Thanks! Looks like you're already subscribed!"
+    redirect_to root_path
   end
 end

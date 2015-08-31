@@ -15,5 +15,4 @@ RSpec.describe SubscriptionRequestMailer, type: :mailer do
       expect(mail.body.encoded).to include(confirm_subscription_request_url(subscription_request.token))
     end
   end
-
 end

@@ -1,0 +1,15 @@
+# Prefer doubles quotes
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+# Class level documentation is more useful for libraries
+Style/Documentation:
+  Enabled: false
+
+# Self adds readability
+Style/RedundantSelf:
+  Enabled: false
+
+# 80 is generally too small
+Metrics/LineLength:
+  Max: 120
