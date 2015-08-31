@@ -36,7 +36,11 @@ RSpec.describe Subscription, type: :model do
         expect { Subscription.publish! }
           .to change { ActionMailer::Base.deliveries.count }.by(10)
 
-        expect(ActionMailer::Base.deliveries.count).to eq(20)
+        # Nested travel, 1 day from before
+        Timecop.travel(1.day.from_now) do
+          expect { Subscription.publish! }
+            .to change { ActionMailer::Base.deliveries.count }.by(10)
+        end
       end
     end
   end
