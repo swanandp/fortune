@@ -1,10 +1,19 @@
-.jumbotron {
-  background-size: cover;
-  margin: auto;
-  overflow-y: hidden;
-  height: 65rem;
-  padding: 30px;
-  position: absolute;
-  top: 0;
-  width: 100%;
+.container-fluid {
+  .jumbotron {
+    background: url(image_path("hero.jpg")) left top no-repeat;
+    background-size: cover;
+    border-radius: 0;
+    height: 100vh;
+    margin: auto;
+    padding: 14%;
+    width: 100%;
+
+    h1 {
+      color: $brand-primary;
+
+      small {
+        color: $gray-dark;
+      }
+    }
+  }
 }
